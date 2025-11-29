@@ -9,6 +9,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class CursoServiceTest {
 
+    /**
+     * Test para agregar un curso exitosamente.
+     */
     @Test
     void agregarCursoTest() {
        CursoService cursoService= new CursoService();
@@ -16,6 +19,9 @@ public class CursoServiceTest {
         assertEquals(1, cursoService.listaCursos().size());
     }
 
+    /**
+     * Test para buscar un curso por su código exitosamente.
+     */
     @Test
     void buscarCursoPorCodigoTest() throws CursoNoEncontradoException {
         CursoService cursoService= new CursoService();
@@ -25,6 +31,9 @@ public class CursoServiceTest {
         assertNotNull(encontrar);
     }
     
+    /**
+     * Test para verificar que se lance una excepción al buscar un curso inexistente.
+     */
     @Test
     void buscarCursoInexistenteTest() {
         CursoService cursoService= new CursoService();
@@ -34,6 +43,9 @@ public class CursoServiceTest {
         assertEquals("Curso con el codigo  no encontrado", exception.getMessage());
     }
     
+    /**
+     * Test para listar todos los cursos.
+     */
     @Test
     void listarCursosTest() {
         CursoService cursoService= new CursoService();

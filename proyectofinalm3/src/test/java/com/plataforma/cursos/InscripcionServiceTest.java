@@ -13,6 +13,9 @@ import com.plataforma.cursos.exception.EstudianteNoEncontradoException;
 
 public class InscripcionServiceTest {
 
+    /**
+     * Test para inscribir un estudiante en un curso exitosamente.
+     */
     @Test
     void inscribirEstudianteTest() throws CursoLlenoException {
         CursoService cursoService= new CursoService();
@@ -25,6 +28,9 @@ public class InscripcionServiceTest {
 
     }
 
+    /**
+     * Test para verificar que se lance una excepción cuando se intenta inscribir un estudiante en un curso lleno.
+     */
     @Test
     void inscribirEstudianteCursoLlenoTest() throws CursoLlenoException {
         CursoService cursoService= new CursoService();
@@ -40,6 +46,9 @@ public class InscripcionServiceTest {
         assertEquals("El curso Python Basico esta lleno no se puede inscribir al estudiante", exception.getMessage());
     }
 
+    /**
+     * Test para buscar inscripciones por estudiante.
+     */
     @Test
     void buscarInscrionesPorEstudianteTest() throws CursoLlenoException, EstudianteNoEncontradoException {
         CursoService cursoService= new CursoService();
@@ -54,6 +63,9 @@ public class InscripcionServiceTest {
         assertFalse(inscripcionService.buscarInscripcionesPorEstudiante(estudiante).isEmpty());
     }
 
+    /**
+     * Test para verificar que se lance una excepción cuando no se encuentran inscripciones para un estudiante.
+     */
     @Test
     void buscarInscripcionesVaciasPorEstudianteTest() {
         InscripcionService inscripcionService= new InscripcionService();
@@ -63,7 +75,9 @@ public class InscripcionServiceTest {
         });
 }
 
-
+    /**
+     * Test para listar todas las inscripciones de un estudiante.
+     */
     @Test
     void listarinscripcionesTest() throws CursoLlenoException, EstudianteNoEncontradoException {
         CursoService cursoService= new CursoService();
